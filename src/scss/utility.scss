@@ -1,0 +1,179 @@
+@import "./custom.scss";
+@import "./media.scss";
+
+// ------------------
+//       Utility classes
+// ------------------
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+.d-block {
+  display: block;
+}
+.container {
+  padding: 0 2rem;
+  margin: 0 auto;
+  max-width: 80rem;
+}
+.grid-container {
+  display: grid;
+  text-align: center;
+  place-items: center;
+  padding: 0 1rem;
+  padding-bottom: 4rem;
+  * {
+    max-width: 50ch;
+  }
+  @include media1 {
+    text-align: left;
+    column-gap: var(--container-gap, 2rem);
+    grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 40rem)) minmax(
+        2rem,
+        1fr
+      );
+    *:first-child {
+      grid-column: 2;
+    }
+    *:last-child {
+      grid-column: 3;
+    }
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; // add line
+  border: 0;
+}
+.flow {
+  * + * {
+    margin-top: var(--flow-space, 1rem);
+  }
+}
+
+.bg-dark {
+  background-color: $dark;
+}
+.bg-accent {
+  background-color: $light;
+}
+.bg-white {
+  background-color: $white;
+}
+.text-dark {
+  color: $dark;
+}
+.text-accent {
+  color: $light;
+}
+.text-white {
+  color: $white;
+}
+.ff-serif {
+  font-family: $ff-serif;
+}
+.ff-sans-cond {
+  font-family: $ff-sans-cond;
+}
+.ff-sans-normal {
+  font-family: $ff-sans-normal;
+}
+
+.letter-spacing-1 {
+  letter-spacing: 4.75px;
+}
+.letter-spacing-2 {
+  letter-spacing: 2.7px;
+}
+.letter-spacing-3 {
+  letter-spacing: 2.35px;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+.fs-900 {
+  font-size: $fs-900;
+  @include media2 {
+    $fs-900: 9.375rem;
+  }
+}
+.fs-800 {
+  font-size: $fs-800;
+  @include media2 {
+    font-size: 5rem;
+  }
+  @include media1 {
+    font-size: 6.25rem;
+  }
+}
+.fs-700 {
+  font-size: $fs-700;
+  @include media2 {
+    font-size: 2.5rem;
+  }
+  @include media1 {
+    font-size: 3.5rem;
+  }
+}
+.fs-600 {
+  font-size: $fs-600;
+  @include media2 {
+    font-size: 1.5rem;
+  }
+  @include media1 {
+    font-size: 2rem;
+  }
+}
+.fs-500 {
+  font-size: $fs-500;
+  @include media2 {
+    font-size: 1.25rem;
+  }
+  @include media1 {
+    font-size: 1.75rem;
+  }
+}
+.fs-400 {
+  font-size: $fs-400;
+  @include media2 {
+    font-size: 1rem;
+  }
+  @include media1 {
+    font-size: 1.125rem;
+  }
+}
+.fs-300 {
+  font-size: $fs-300;
+}
+.fs-200 {
+  font-size: $fs-200;
+}
+.fs-900,
+.fs-800,
+.fs-700,
+.fs-600 {
+  line-height: 1.1;
+}
+.numbered-title {
+  font-family: $ff-sans-cond;
+  font-size: $fs-500;
+  text-transform: uppercase;
+  letter-spacing: 4.72px;
+  span {
+    margin-right: 0.5em;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.25);
+  }
+}

@@ -1,0 +1,35 @@
+@mixin media1 {
+  @media (min-width: 45em) {
+    @content;
+  }
+}
+@mixin media2 {
+  @media (min-width: 35em) {
+    @content;
+  }
+}
+@mixin media3 {
+  @media (max-width: 380px) {
+    @content;
+  }
+}
+@mixin media4 {
+  @media (min-width: 380px) and (max-width: 560px) {
+    @content;
+  }
+}
+@mixin media5 {
+  @media (max-width: 35rem) {
+    @content;
+  }
+}
+@mixin media6 {
+  @media (min-width: 35rem) and (max-width: 45rem) {
+    @content;
+  }
+}
+@mixin media7 {
+  @media (min-width: 60rem) {
+    @content;
+  }
+}

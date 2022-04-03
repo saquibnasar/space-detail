@@ -1,0 +1,96 @@
+@import "./utility.scss";
+@import "./custom.scss";
+@import "./media.scss";
+// ----------------
+//     RESET
+// -----------------
+
+// box sizing
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+// Reset Margin
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+// Reset padding
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  padding: 0;
+}
+
+// Reset Font Weight
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  font-weight: 400;
+}
+
+// Set up The boddy
+
+body {
+  font-family: $ff-sans-normal;
+  font-size: $fs-400;
+  color: $white;
+  background-color: $dark;
+  overflow-x: hidden;
+  // line-height: 1.5;
+  // min-height: 100vh;
+  // display: grid;
+  // grid-template-rows: min-content 1fr;
+  // justify-items: stretch;
+  // align-items: end;
+  @include media2 {
+    font-size: 1rem;
+  }
+  @include media1 {
+    font-size: 1.125rem;
+  }
+}
+// make img easier to work with
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+// make form elements easier to work with
+input,
+button,
+select,
+textarea {
+  font: inherit;
+}
+// remove animation for people who've turned them off
+@media (prefers-reduced-motion: reduced) {
+  *,
+  *::after,
+  *::before {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

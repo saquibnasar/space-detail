@@ -1,0 +1,44 @@
+@import "./media.scss";
+.primary-heanding {
+  justify-content: space-between;
+  // padding: 25px 0;
+  align-items: center;
+  @include media6 {
+    padding: 0;
+  }
+  .mobile-nav-toggle {
+    display: none;
+    cursor: pointer;
+    @include media5 {
+      display: block;
+      position: absolute;
+      z-index: 2000;
+      right: 1rem;
+      top: 2rem;
+      background: transparent;
+      // background-image: url("./menu/icon-hamburger.svg");
+      background-repeat: no-repeat;
+      width: 1.5rem;
+      aspect-ratio: 1;
+      border: 0;
+    }
+  }
+  .logo {
+    margin: 1.5rem;
+  }
+  nav {
+    order: 2;
+  }
+}
+// .primary-heanding::after {
+//   @include media1 {
+//     content: "";
+//     display: block;
+//     position: relative;
+//     height: 1px;
+//     width: 100%;
+//     margin-right: -2.5rem;
+//     background: rgba(255, 255, 255, 0.25);
+//     order: 1;
+//   }
+// }

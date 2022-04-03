@@ -1,0 +1,134 @@
+@import "./utility.scss";
+@import "./custom.scss";
+@import "./font.scss";
+@import "./media.scss";
+.large-button {
+  font-size: 2rem;
+  display: inline-grid;
+  place-items: center;
+  padding: 0 2rem;
+  aspect-ratio: 1;
+  text-decoration: none;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+.large-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: -1;
+  border-radius: 50%;
+  transition: opacity 500ms linear, transform 500ms ease-in-out;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+.large-button:hover::after,
+.large-button:focus::after {
+  opacity: 1;
+  transform: scale(1.5);
+}
+.primary-navigation {
+  // --gap: 8rem;
+  --underline-gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: rgba(11, 13, 23, 0.95);
+
+  @include media5 {
+    --underline-gap: 1rem;
+    list-style: none;
+    padding: 5rem 2rem;
+    margin: 0;
+    flex-direction: column;
+    inset: 0 0 0 20%;
+    position: fixed;
+    z-index: 1000;
+    transition: 0.5s;
+  }
+  @include media6 {
+    padding-inline: 3rem;
+    gap: 2rem;
+  }
+
+  a {
+    text-decoration: none;
+    span {
+      @include media6 {
+        display: none;
+      }
+    }
+  }
+}
+@supports (backdrop-filter: blur(1.5rem)) {
+  .primary-navigation {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(1.5rem);
+  }
+}
+.underline-indicators {
+  * {
+    border: 0;
+    cursor: pointer;
+    padding: var(--underline-gap, 1rem) 0;
+    border-bottom: 0.2rem solid rgba(255, 255, 255, 0);
+    @include media7 {
+      margin: 0 13px;
+    }
+    @include media1 {
+      margin: 0 8px;
+    }
+  }
+  *:hover,
+  *:focus {
+    border-color: rgba(255, 255, 255, 0.25);
+    @include media5 {
+      border: 0;
+    }
+  }
+  .active,
+  [aria-selected="true"] {
+    color: $white;
+    border-color: rgba(255, 255, 255, 1);
+    @include media5 {
+      border: 0;
+    }
+  }
+}
+.tab-list {
+  --gap: 2rem;
+}
+
+.dot-indicators {
+  * {
+    cursor: pointer;
+    border: 0;
+    border-radius: 50%;
+    padding: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+  *:hover,
+  *:focus {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+  [aria-selected="true"] {
+    background-color: $white;
+  }
+}
+
+.number-indicators {
+  flex-direction: column;
+  * {
+    width: 50px;
+    color: $white;
+    height: 50px;
+    background: transparent;
+    border-radius: 50%;
+  }
+  [aria-selected="true"] {
+    background-color: $white;
+    color: $dark;
+  }
+}
